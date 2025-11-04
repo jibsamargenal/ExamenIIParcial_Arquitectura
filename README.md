@@ -41,5 +41,5 @@ El template recibe los datos de la API para actualizar el DOM con la informació
 se encuentra dentro de divs que utilizan las clases de Bootstrap como card y container para mejorar visualmente
 la aplicación y facilitar la información.
 
-## urls.py
+### urls.py
 Aquí se definen las rutas para acceder al template y la API desde el navegador web.
