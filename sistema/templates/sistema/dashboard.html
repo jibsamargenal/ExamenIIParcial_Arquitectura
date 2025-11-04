@@ -17,9 +17,9 @@
         <div class="card mb-4 shadow">
             <div class="card-header bg-primary text-white">Información del sistema</div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Sistema operativo:</strong> {{ sistema_os }}</li>
-                <li class="list-group-item"><strong>Versión:</strong> {{ version_os }}</li>
-                <li class="list-group-item"><strong>Núcleos de CPU:</strong> {{ nucleos_cpu }}</li>
+                <li class="list-group-item"><strong>Sistema operativo:</strong> {{ sistema_os | default:"N/A" }}</li>
+                <li class="list-group-item"><strong>Versión:</strong> {{ version_os | default:"N/A" }}</li>
+                <li class="list-group-item"><strong>Núcleos de CPU:</strong> {{ nucleos_cpu | default:"N/A" }}</li>
             </ul>
         </div>
 
@@ -30,11 +30,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Uso de CPU</h5>
                         <p class="card-text">
-                            Carga actual: <span id="porcentaje_cpu" class="badge bg-success fs-5">{{ uso_cpu }}%</span>
+                            Carga actual: <span id="porcentaje_cpu" class="badge bg-success fs-5">{{ uso_cpu | default:"N/A" }}%</span>
                         </p>
                         <div class="progress" style="height: 25px;">
                             <div id="barra_cpu" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" 
-                                style="width:{{ uso_cpu }}%;"></div>
+                                style="width:{{ uso_cpu | default:"100" }}%;"></div>
                         </div>
                     </div>
                 </div>
@@ -45,12 +45,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Uso de Memoria</h5>
                         <p class="card-text">
-                            Usado: <span id="porcentaje_memoria" class="badge bg-info fs-5">{{ uso_memoria }}%</span>
-                            <small>({{ memoria_usada_en_gb }} GB / {{ total_memoria_en_gb }} GB)</small>
+                            Usado: <span id="porcentaje_memoria" class="badge bg-info fs-5">{{ uso_memoria | default:"N/A" }}%</span>
+                            <small>({{ memoria_usada_en_gb | default:"N/A" }} GB / {{ total_memoria_en_gb | default:"N/A" }} GB)</small>
                         </p>
                         <div class="progress" style="height: 25px;">
                             <div id="barra_memoria" class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" 
-                                style="width:{{ uso_memoria }}%;"></div>
+                                style="width:{{ uso_memoria | default:"100" }}%;"></div>
                         </div>
                     </div>
                 </div>
@@ -61,12 +61,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Uso de Disco</h5>
                         <p class="card-text">
-                            Usado: <span id="porcentaje_disco" class="badge bg-warning fs-5">{{ uso_disco }}%</span>
-                            <small>({{ disco_usado_en_gb }} GB / {{ total_disco_en_gb }} GB)</small>
+                            Usado: <span id="porcentaje_disco" class="badge bg-warning fs-5">{{ uso_disco | default:"N/A" }}%</span>
+                            <small>({{ disco_usado_en_gb | default:"N/A" }} GB / {{ total_disco_en_gb | default:"N/A" }} GB)</small>
                         </p>
                         <div class="progress" style="height: 25px;">
                             <div id="barra_disco" class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" 
-                                style="width:{{ uso_disco }}%;"></div>
+                                style="width:{{ uso_disco | default:"100" }}%;"></div>
                         </div>
                     </div>
                 </div>
