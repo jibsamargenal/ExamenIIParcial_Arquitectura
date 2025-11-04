@@ -17,9 +17,9 @@ def obtener_metricas_del_sistema():
     # Uso del disco para la partición root
     try:
         informacion_disco = psutil.disk_usage('/')
-        total_disco_en_gb = round(disk_info.total / (1024**3), 2)
-        disco_usado_en_gb = round(disk_info.used / (1024**3), 2)
-        porcentaje_disco = disk_info.percent
+        total_disco_en_gb = round(informacion_disco.total / (1024**3), 2)
+        disco_usado_en_gb = round(informacion_disco.used / (1024**3), 2)
+        porcentaje_disco = informacion_disco.percent
     except Exception:
         # Fallback en caso de no tener una partición root simple
         total_disco_en_gb, disco_usado_en_gb, porcentaje_disco = 'N/A', 'N/A', 'N/A'
@@ -45,7 +45,9 @@ def obtener_metricas_del_sistema():
         'memoria_usada_en_gb': memoria_usada_en_gb,
         'total_disco_en_gb': total_disco_en_gb,
         'disco_usado_en_gb': disco_usado_en_gb,
-        'informacion_sistema': f"{sistema_os} {lanzamiento_os} ({version_os})",
+        'sistema_os': sistema_os, 
+        'lanzamiento_os': lanzamiento_os,
+        'version_os': version_os,
     }
 
 
